@@ -17,6 +17,9 @@ export default buildConfig({
     // bundler: webpackBundler(),
     bundler: viteBundler(),
   },
+  // TODO: change to actual server domain
+  cors: ['http://localhost:3000/', 'http://localhost:5317'],
+  csrf: ['http://localhost:3000/', 'http://localhost:5317'],
   editor: slateEditor({}),
   collections: [Users, Accounts, Notes],
   typescript: {
