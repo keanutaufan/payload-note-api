@@ -18,6 +18,11 @@ const Notes: CollectionConfig = {
       name: 'authorID',
       type: 'text',
       required: true,
+      defaultValue: ({ user }) => user.id,
+      access: {
+        create: ({ req: { user }}) => {return user && user.collection === 'users'},
+        update: ({ req: { user }}) => {return user && user.collection === 'users'},
+      }
     },
     {
       name: 'content',
