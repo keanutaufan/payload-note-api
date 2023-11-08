@@ -2,7 +2,8 @@ import path from 'path'
 
 import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { webpackBundler } from '@payloadcms/bundler-webpack'
+// import { webpackBundler } from '@payloadcms/bundler-webpack' // 
+import { viteBundler } from '@payloadcms/bundler-vite'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
 
@@ -13,7 +14,8 @@ import Notes from './collections/Notes'
 export default buildConfig({
   admin: {
     user: Users.slug,
-    bundler: webpackBundler(),
+    // bundler: webpackBundler(),
+    bundler: viteBundler(),
   },
   editor: slateEditor({}),
   collections: [Users, Accounts, Notes],
